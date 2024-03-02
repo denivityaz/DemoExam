@@ -13,11 +13,15 @@ CREATE TABLE users (
 
 -- Создаем 10 баз данных BD1, BD2, ..., BD10
 DO $$
+DECLARE
+    i INT := 1;
 BEGIN
-    FOR i IN 1..10 LOOP
+    WHILE i <= 10 LOOP
         EXECUTE format('CREATE DATABASE BD%s;', i);
+        i := i + 1;
     END LOOP;
 END $$;
+
 
 -- Создаем 10 пользователей user1, user2, ..., user10 с случайными паролями и предоставляем им доступ только к их соответствующим базам данных
 DO $$
