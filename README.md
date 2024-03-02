@@ -1,2 +1,0 @@
-# DemoExam
-training
